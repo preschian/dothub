@@ -4,7 +4,7 @@ globs:
 alwaysApply: true
 ---
 - the project use bun as package manager
-- make sure the design is modern, elegant, and concise
+- make sure the design is modern and concise
 - use tailwindcss v4. design system colors are primary, secondary, success, info, warning, error, and neutral variants.
 - the project is about linktree but on Polkadot blockchain
 - use simple english in the code

@@ -99,13 +99,13 @@
         <!-- Feature 5 -->
         <div class="bg-white p-8 rounded-2xl">
           <div class="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center mb-6">
-            <Icon name="i-lucide-globe" class="w-6 h-6 text-primary-600" />
+            <Icon name="i-lucide-image" class="w-6 h-6 text-primary-600" />
           </div>
           <h3 class="text-lg font-semibold text-slate-900 mb-3">
-            Always Online
+            NFT Integration
           </h3>
           <p class="text-slate-600">
-            Your page is accessible 24/7 with 99.9% uptime guaranteed by the blockchain.
+            Showcase and sell your NFTs directly from your page. Connect your collections and monetize your digital art.
           </p>
         </div>
 
