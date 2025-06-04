@@ -1,0 +1,8 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+- the project use bun as package manager
+- make sure the design is modern and concise
+- use tailwindcss v4
