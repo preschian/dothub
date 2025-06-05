@@ -5,11 +5,91 @@ definePageMeta({
 </script>
 
 <template>
-  <div class="min-h-screen bg-gradient-to-br from-slate-100 via-white to-primary-100/30 py-8">
+  <div class="min-h-screen bg-gradient-to-br from-slate-100 via-white to-primary-100/30">
     <UContainer>
       <!-- Profile Header -->
       <div class="pt-12 pb-8">
-        <div class="max-w-2xl mx-auto text-center">
+        <div class="max-w-2xl mx-auto text-center relative">
+          <!-- Burger Menu - Top Right -->
+          <div class="absolute top-0 right-0 z-10">
+            <UModal>
+              <UButton
+                icon="i-lucide-more-horizontal"
+                size="sm"
+                color="neutral"
+                variant="ghost"
+                class="rounded-full"
+              />
+
+              <template #header>
+                <h3 class="text-lg font-semibold">
+                  Page Actions
+                </h3>
+              </template>
+
+              <template #body>
+                <div class="space-y-3">
+                  <UButton
+                    variant="ghost"
+                    class="w-full justify-start gap-3 p-4 h-auto"
+                    size="lg"
+                    @click="() => {}"
+                  >
+                    <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+                      <Icon name="i-lucide-share-2" class="w-5 h-5 text-blue-600" />
+                    </div>
+                    <div class="text-left">
+                      <div class="font-medium">
+                        Share Page
+                      </div>
+                      <div class="text-sm text-slate-500">
+                        Share this profile with others
+                      </div>
+                    </div>
+                  </UButton>
+
+                  <UButton
+                    variant="ghost"
+                    class="w-full justify-start gap-3 p-4 h-auto"
+                    size="lg"
+                    @click="() => {}"
+                  >
+                    <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
+                      <Icon name="i-lucide-bookmark" class="w-5 h-5 text-green-600" />
+                    </div>
+                    <div class="text-left">
+                      <div class="font-medium">
+                        Save
+                      </div>
+                      <div class="text-sm text-slate-500">
+                        Save this profile to your favorites
+                      </div>
+                    </div>
+                  </UButton>
+
+                  <UButton
+                    variant="ghost"
+                    class="w-full justify-start gap-3 p-4 h-auto"
+                    size="lg"
+                    @click="() => {}"
+                  >
+                    <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center">
+                      <Icon name="i-lucide-flag" class="w-5 h-5 text-red-600" />
+                    </div>
+                    <div class="text-left">
+                      <div class="font-medium">
+                        Report
+                      </div>
+                      <div class="text-sm text-slate-500">
+                        Report inappropriate content
+                      </div>
+                    </div>
+                  </UButton>
+                </div>
+              </template>
+            </UModal>
+          </div>
+
           <!-- Profile Avatar -->
           <div class="relative mb-6 flex justify-center">
             <div class="relative">
@@ -32,31 +112,104 @@ definePageMeta({
           </p>
 
           <!-- Wallet Address -->
-          <div class="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-white/50 rounded-full px-4 py-2 text-sm text-slate-600">
-            <Icon name="i-lucide-wallet" class="w-4 h-4 text-primary-600" />
-            <span class="font-mono">5GrwvaEF...KutQY</span>
-            <button class="hover:text-primary-600 transition-colors">
-              <Icon name="i-lucide-copy" class="w-4 h-4" />
-            </button>
+          <div class="flex items-center justify-center gap-3">
+            <div class="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-white/50 rounded-full px-4 py-2 text-sm text-slate-600">
+              <Icon name="i-lucide-wallet" class="w-4 h-4 text-primary-600" />
+              <span class="font-mono">5GrwvaEF...KutQY</span>
+              <button class="hover:text-primary-600 transition-colors">
+                <Icon name="i-lucide-copy" class="w-4 h-4" />
+              </button>
+            </div>
+
+            <!-- Send DOT Modal -->
+            <UModal>
+              <UButton
+                size="sm"
+                icon="i-lucide-send"
+                class="bg-primary-600 hover:bg-primary-700"
+              >
+                Send DOT
+              </UButton>
+
+              <template #header>
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center">
+                    <Icon name="i-lucide-heart" class="w-5 h-5 text-primary-600" />
+                  </div>
+                  <div>
+                    <h3 class="text-lg font-semibold">
+                      Support @{{ $route.params.user }}
+                    </h3>
+                    <p class="text-sm text-slate-500">
+                      Send cryptocurrency to show your appreciation
+                    </p>
+                  </div>
+                </div>
+              </template>
+
+              <template #body>
+                <div class="space-y-6">
+                  <!-- Wallet Address Display -->
+                  <div class="bg-slate-50 rounded-xl p-4">
+                    <label class="text-sm font-medium text-slate-700 mb-2 block">Wallet Address</label>
+                    <div class="flex items-center gap-2 bg-white rounded-lg p-3 border border-slate-200">
+                      <Icon name="i-lucide-wallet" class="w-4 h-4 text-slate-400" />
+                      <span class="font-mono text-sm flex-1">5GrwvaEF5j4wN9qN9M2KutQY</span>
+                      <button class="text-slate-400 hover:text-slate-600 transition-colors">
+                        <Icon name="i-lucide-copy" class="w-4 h-4" />
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- Quick Amount Buttons -->
+                  <div>
+                    <label class="text-sm font-medium text-slate-700 mb-3 block">Quick Amounts</label>
+                    <div class="grid grid-cols-3 gap-3">
+                      <UButton variant="outline" class="justify-center" size="sm">
+                        <Icon name="i-lucide-coffee" class="w-4 h-4 mr-2" />
+                        1 DOT
+                      </UButton>
+                      <UButton variant="outline" class="justify-center" size="sm">
+                        <Icon name="i-lucide-heart" class="w-4 h-4 mr-2" />
+                        5 DOT
+                      </UButton>
+                      <UButton variant="outline" class="justify-center" size="sm">
+                        <Icon name="i-lucide-star" class="w-4 h-4 mr-2" />
+                        10 DOT
+                      </UButton>
+                    </div>
+                  </div>
+
+                  <!-- Message -->
+                  <div>
+                    <label class="text-sm font-medium text-slate-700 mb-2 block">Message (Optional)</label>
+                    <textarea
+                      class="w-full p-3 border border-slate-200 rounded-lg text-sm resize-none"
+                      rows="3"
+                      placeholder="Say something nice..."
+                    />
+                  </div>
+                </div>
+              </template>
+
+              <template #footer>
+                <div class="flex gap-3 w-full">
+                  <UButton variant="outline" class="flex-1">
+                    Cancel
+                  </UButton>
+                  <UButton class="flex-1">
+                    <Icon name="i-lucide-send" class="w-4 h-4 mr-2" />
+                    Send DOT
+                  </UButton>
+                </div>
+              </template>
+            </UModal>
           </div>
         </div>
       </div>
 
       <!-- Main Content -->
       <div class="max-w-2xl mx-auto pb-12">
-        <!-- Quick Actions -->
-        <div class="flex items-center justify-center gap-3 mb-12">
-          <UButton variant="outline" size="sm" icon="i-lucide-share-2">
-            Share Page
-          </UButton>
-          <UButton variant="outline" size="sm" icon="i-lucide-bookmark">
-            Save
-          </UButton>
-          <UButton variant="outline" size="sm" icon="i-lucide-flag">
-            Report
-          </UButton>
-        </div>
-
         <!-- Links Section -->
         <div class="space-y-3 mb-12">
           <!-- Social Link -->
@@ -213,27 +366,6 @@ definePageMeta({
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-
-        <!-- Support Section -->
-        <div class="bg-gradient-to-r from-primary-500 to-primary-600 rounded-2xl p-6 text-center text-white">
-          <Icon name="i-lucide-heart" class="w-8 h-8 mx-auto mb-3" />
-          <h3 class="font-semibold mb-2">
-            Support my work
-          </h3>
-          <p class="text-primary-100 text-sm mb-4">
-            If you enjoy my content, consider supporting me with crypto
-          </p>
-          <div class="flex flex-col sm:flex-row gap-3 justify-center">
-            <UButton variant="outline" size="sm" class="border-white/30 text-white hover:bg-white/10">
-              <Icon name="i-lucide-coffee" class="w-4 h-4 mr-2" />
-              Buy me coffee
-            </UButton>
-            <UButton variant="outline" size="sm" class="border-white/30 text-white hover:bg-white/10">
-              <Icon name="i-lucide-coins" class="w-4 h-4 mr-2" />
-              Send DOT
-            </UButton>
           </div>
         </div>
 
