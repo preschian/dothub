@@ -30,3 +30,6 @@ jobs:
 
       - name: Build & Deploy to NuxtHub
         run: bunx nuxthub deploy
+        env:
+          NUXT_HUB_PROJECT_KEY: ${{ secrets.NUXT_HUB_PROJECT_KEY }}
+          NUXT_HUB_USER_TOKEN: ${{ secrets.NUXT_HUB_USER_TOKEN }}
