@@ -33,3 +33,4 @@ jobs:
         with:
           project-key: dot-hub-yn6r
           directory: dapp
+          output-directory: .output
