@@ -1,9 +1,9 @@
-name: Deploy to NuxtHub
+name: Deploy to dot-hub
 on: push
 
 jobs:
   deploy:
-    name: "Deploy to NuxtHub"
+    name: "Deploy to dot-hub"
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -32,3 +32,4 @@ jobs:
         uses: nuxt-hub/action@v2
         with:
           project-key: dot-hub-yn6r
+          directory: dapp
