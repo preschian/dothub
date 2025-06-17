@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     '@nuxt/fonts',
     '@nuxt/icon',
     '@nuxt/scripts',
+    '@nuxthub/core',
   ],
 
   css: ['~/assets/css/main.css'],
@@ -17,8 +18,4 @@ export default defineNuxtConfig({
   },
 
   compatibilityDate: '2024-11-27',
-
-  nitro: {
-    preset: 'cloudflare-module',
-  },
 })
