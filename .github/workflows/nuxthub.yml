@@ -29,6 +29,7 @@ jobs:
         run: bun install
 
       - name: Build & Deploy to NuxtHub
-        uses: nuxt-hub/action@v2
-        with:
-          project-key: dot-hub-yn6r
+        run: bunx nuxthub deploy
+        env:
+          NUXT_HUB_PROJECT_KEY: ${{ secrets.NUXT_HUB_PROJECT_KEY }}
+          NUXT_HUB_USER_TOKEN: ${{ secrets.NUXT_HUB_USER_TOKEN }}
