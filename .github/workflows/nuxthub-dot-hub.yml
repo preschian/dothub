@@ -1,9 +1,9 @@
-name: Deploy to dot-hub
+name: Deploy dot-hub to cf-workers
 on: push
 
 jobs:
   deploy:
-    name: "Deploy to dot-hub"
+    name: "Deploy dot-hub to cf-workers"
     runs-on: ubuntu-latest
     permissions:
       contents: read
