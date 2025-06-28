@@ -33,3 +33,5 @@ jobs:
         with:
           project-key: dot-hub-yn6r
           directory: dapp
+        env:
+          NITRO_PRESET: ${{ env.NITRO_PRESET }}
